@@ -1,0 +1,6 @@
+# Require review for all changes to the repo
+*       @bavadeve
+
+# Optional: assign ownership for specific folders
+docs/   @bavadeve
+data/   @bavadeve

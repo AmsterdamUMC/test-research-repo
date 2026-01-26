@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this template, please cite it as below."
+title: "Secure GitHub Template for Research"
+authors:
+  - family-names: van der Velde
+    given-names: Bauke
+    orcid: https://orcid.org/0000-0002-0365-3862
+    affiliation: Amsterdam UMC
+date-released: 2025-06-01
+version: 1.0.0
+license: MIT
+repository-code: https://github.com/AmsterdamUMC-test/repo-template-secure

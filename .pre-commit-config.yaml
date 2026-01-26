@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+        stages: [pre-commit, pre-push]
+        args:
+          - --config=gitleaks.toml
+
+  - repo: https://github.com/amsterdamumc/org-security-workflows
+    rev: v0.3.2
+    hooks:
+      - id: check-forbidden-filetypes
+        stages: [pre-commit]
+      - id: check-forbidden-filetypes-prepush
+        stages: [pre-push]
+      - id: check-personal-info
+        stages: [pre-commit]
+      - id: check-personal-info-prepush
+        stages: [pre-push]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+        args: ["--maxkb=100"]
+      - id: check-merge-conflict

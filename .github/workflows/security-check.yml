@@ -1,0 +1,19 @@
+name: Org Security Scan
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  filetype-check:
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-forbidden-filetypes.yml@main
+    secrets: inherit
+
+  personal-info-check:
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-personal-info.yml@main
+    secrets: inherit
+
+  gitleaks-scan:
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-gitleaks.yml@main
+    secrets: inherit

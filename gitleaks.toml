@@ -1,0 +1,32 @@
+title = "Amsterdam UMC Gitleaks Configuration"
+
+# Keep all default gitleaks rules, but add custom allowlists
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Medical research environment allowlist"
+
+# Ignore entire file types that cause false positives
+paths = [
+    '''.*\.ipynb$''',           # Jupyter notebooks (scientific data)
+    '''.*\.log$''',              # Log files (pagination tokens, etc.)
+    '''.*test.*\.json$''',       # Test configuration files
+    '''SECURITY\.md$''',         # Security documentation (contains example secrets)
+    '''CONTRIBUTING\.md$''',     # Contributing guide (may have example tokens)
+    '''README.*\.md$''',         # README files (often have example credentials)
+]
+
+# Context-aware patterns - only ignore when variable name indicates it's safe
+regexes = [
+    # Google AdSense Publisher IDs (public identifiers)
+    '''ca-pub-\d{16}''',
+
+    # Azure public identifiers (only when explicitly named)
+    '''(?i)(clientid|applicationid|appid)["']?\s*[:=]\s*["'][a-f0-9-]{36}["']''',
+    '''(?i)(tenantid|directoryid)["']?\s*[:=]\s*["'][a-f0-9-]{36}["']''',
+    '''(?i)(thumbprint|certificatethumbprint)["']?\s*[:=]\s*["'][A-F0-9]{40}["']''',
+
+    # DNA/RNA sequences (4+ repeated nucleotides)
+    '''[ACGT]{8,}''',
+]
