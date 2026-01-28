@@ -1,6 +1,6 @@
 # Project Template Overview
 
-**What This Template Does**  
+**What This Template Does**
 This GitHub repository template helps Amsterdam UMC researchers work safely with code and data while preventing accidental data leaks.
 
 ---
@@ -11,7 +11,7 @@ Research code often lives alongside sensitive data—patient records, experiment
 
 This template prevents those accidents with automated checks that run:
 - Before you commit (on your computer)
-- Before you push (on your computer)  
+- Before you push (on your computer)
 - When you push (on GitHub servers)
 - When you open a pull request (on GitHub servers)
 
@@ -105,7 +105,7 @@ Files matching these patterns are silently ignored:
 .env
 ```
 
-**Strength:** Weak - can be overridden with `git add -f`  
+**Strength:** Weak - can be overridden with `git add -f`
 **Purpose:** Convenience, prevents accidental staging
 
 ### Layer 2: Pre-Commit Hook (Active)
@@ -116,7 +116,7 @@ Before each commit, scans staged files for:
 - Patient IDs (7-digit patterns)
 - Code quality issues
 
-**Strength:** Strong - requires `--no-verify` to bypass  
+**Strength:** Strong - requires `--no-verify` to bypass
 **Purpose:** Catch mistakes before they're committed
 
 ### Layer 3: Pre-Push Hook (Active)
@@ -126,7 +126,7 @@ Before each push, re-scans ALL commits being pushed:
 - Catches commits made before hooks installed
 - Downloads latest security rules
 
-**Strength:** Strong - requires `--no-verify` to bypass  
+**Strength:** Strong - requires `--no-verify` to bypass
 **Purpose:** Final check before data leaves your computer
 
 ### Layer 4: GitHub Actions (Mandatory)
@@ -137,7 +137,7 @@ On GitHub's servers, validates every push:
 - Sends alerts to security team
 - Creates tracking issues
 
-**Strength:** Absolute - no way around it  
+**Strength:** Absolute - no way around it
 **Purpose:** Safety net when local checks fail
 
 ---
@@ -243,22 +243,22 @@ The system handles the complexity. You focus on your research.
 
 ## Common Questions
 
-**Q: Will this slow down my work?**  
+**Q: Will this slow down my work?**
 A: The first time hooks run takes ~30 seconds (downloading rules). After that, it's 1-5 seconds per commit. Most of your time is spent writing code, not committing it.
 
-**Q: What if I need to commit a CSV?**  
+**Q: What if I need to commit a CSV?**
 A: You probably don't—most CSVs belong in `/data/`. If you truly need an exception (e.g., a public reference dataset), contact the security team for approval.
 
-**Q: Can I turn off the security checks?**  
+**Q: Can I turn off the security checks?**
 A: The local hooks (layers 1-3) can be bypassed with `--no-verify`, but the GitHub Actions (layer 4) cannot. Bypassing is strongly discouraged and will trigger alerts.
 
-**Q: What happens if I accidentally commit sensitive data?**  
+**Q: What happens if I accidentally commit sensitive data?**
 A: Don't panic! Contact [b.vandervelde@amsterdamumc.nl](mailto:b.vandervelde@amsterdamumc.nl) immediately with subject "SECURITY INCIDENT". We'll help you clean up Git history. See [SECURITY.md](../SECURITY.md#incident-response) for details.
 
-**Q: This seems complicated...**  
+**Q: This seems complicated...**
 A: It's simpler than it looks! The template does the heavy lifting. You just:
    - Put data in `/data/`
-   - Put code in `/scripts/`  
+   - Put code in `/scripts/`
    - Commit and push normally
    - Let the system catch mistakes
 
@@ -328,6 +328,6 @@ Research is hard enough without worrying about data breaches. Let the system han
 
 _This template is maintained by Amsterdam UMC Research Software Management to support responsible, open, and reproducible research._
 
-**Version:** 2.0  
-**Last Updated:** January 2026  
+**Version:** 2.0
+**Last Updated:** January 2026
 **Maintainer:** Bauke van der Velde ([b.vandervelde@amsterdamumc.nl](mailto:b.vandervelde@amsterdamumc.nl))

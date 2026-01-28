@@ -194,7 +194,7 @@ cv_results <- cross_validate(model, patient_data, folds = 10)
 1. **myDRE shared workspaces**
    - Best for patient data
    - Secure, audited, GDPR-compliant
-   
+
 2. **Institutional network drives**
    - Y: drive or departmental shares
    - For non-patient research data
