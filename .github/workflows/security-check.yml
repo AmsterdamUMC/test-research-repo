@@ -7,13 +7,13 @@ on:
 
 jobs:
   filetype-check:
-    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-forbidden-filetypes.yml@main
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-forbidden-filetypes.yml@dev
     secrets: inherit
 
   personal-info-check:
-    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-personal-info.yml@main
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-personal-info.yml@dev
     secrets: inherit
 
   gitleaks-scan:
-    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-gitleaks.yml@main
+    uses: AmsterdamUMC/org-security-workflows/.github/workflows/check-gitleaks.yml@dev
     secrets: inherit
