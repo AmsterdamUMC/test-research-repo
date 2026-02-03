@@ -8,7 +8,7 @@ repos:
           - --config=gitleaks.toml
 
   - repo: https://github.com/amsterdamumc/org-security-workflows
-    rev: v0.3.8
+    rev: v0.3.12
     hooks:
       - id: check-forbidden-filetypes
         stages: [pre-commit]
