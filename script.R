@@ -11,7 +11,7 @@
 # After testing, remove with:
 #   git reset HEAD test-security-detections.txt
 #   rm test-security-detections.txt
-'small change' 
+'small change'
 
 ================================================================================
 BSN - Burgerservicenummer (valid 11-proof)
